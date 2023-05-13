@@ -101,3 +101,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function login(){
+    const login_username = document.getElementById("login_username").value;
+    const login_pwd = document.getElementById("login_pwd").value;
+
+    alert(login_username + login_pwd);
+    var xhr = new XMLHttpRequest();
+    var url = "http://yourserver.com/yourServlet";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    var data = {
+        username: login_username,
+        pwd: login_pwd
+    };
+
+    xhr.send(JSON.stringify(data));
+}
+
+function signup(){
+    const username = document.getElementById("signup_username").value;
+    const email = document.getElementById("signup_email").value;
+    const pwd = document.getElementById("signup_pwd").value;
+    const check_pwd = document.getElementById("rpt_pwd").value;
+
+    alert(username + email + pwd);
+
+    var xhr = new XMLHttpRequest();
+    var url = "http://yourserver.com/yourServlet";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    var data = {
+        username: username,
+        email: email,
+        pwd: pwd
+    };
+
+    xhr.send(JSON.stringify(data));
+
+    /*if(pwd != check_pwd){
+        alert('Please make sure that you type in the same password');
+    }
+    if(pwd == check_pwd){
+        alert(username + email + pwd);
+    }*/
+}
